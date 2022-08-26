@@ -1,0 +1,5 @@
+/WEB/wwwroot/lib/
+/WEB/obj/
+/WEB/bin/
+/WEB/appsettings.json
+/WEB/appsettings.*.json

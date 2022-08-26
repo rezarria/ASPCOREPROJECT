@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@6.1.2",
+      "destination": "wwwroot/lib/font-awesome"
+    },
+    {
+      "library": "admin-lte@3.2.0",
+      "destination": "wwwroot/lib/admin-lte"
+    },
+    {
+      "library": "bootstrap-switch@3.3.5",
+      "destination": "wwwroot/lib/bootstrap-switch"
+    },
+    {
+      "library": "bootstrap@4.6.2",
+      "destination": "wwwroot/lib/bootstrap"
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/lib/jquery"
+    }
+  ]
+}
