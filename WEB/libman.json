@@ -21,6 +21,14 @@
     {
       "library": "jquery@3.6.0",
       "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "library": "ckeditor5@35.0.1",
+      "destination": "wwwroot/lib/ckeditor5"
+    },
+    {
+      "library": "icheck-bootstrap@3.0.1",
+      "destination": "wwwroot/lib/icheck-bootstrap"
     }
   ]
 }
