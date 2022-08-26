@@ -3,3 +3,5 @@
 /WEB/bin/
 /WEB/appsettings.json
 /WEB/appsettings.*.json
+/.idea/
+/.vscode/
