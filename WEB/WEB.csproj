@@ -11,6 +11,9 @@
       <PackageReference Include="elFinder.Net.Core" Version="1.5.0" />
       <PackageReference Include="elFinder.Net.Drivers.FileSystem" Version="1.5.0" />
       <PackageReference Include="elFinder.Net.Plugins.FileSystemQuotaManagement" Version="1.5.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.8" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.8" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
       <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.8" />
