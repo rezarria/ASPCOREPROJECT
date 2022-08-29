@@ -19,16 +19,25 @@ public class TaiKhoanController : ControllerBase
         _database = database;
     }
 
+    public class ThongTinDangNhap
+    {
+        public string Email { get; set; } = null!;
+        public string MatKhau { get; set; } = null!;
+
+        public ThongTinDangNhap() { }
+        public ThongTinDangNhap(Models.TblTaiKhoan tk) => (Email, MatKhau) = (tk?.Email ?? String.Empty, String.Empty);
+    }
+
     [HttpPost("dangnhap")]
-    public IActionResult DangNhap(string email, string matKhau)
+    public IActionResult DangNhap(ThongTinDangNhap tt)
     {
         try
         {
             if (User.Identity?.IsAuthenticated ?? false) throw new Exception();
-            var taiKhoan = _database.TblTaiKhoans.Single(x => x.Email == email);
+            var taiKhoan = _database.TblTaiKhoans.Single(x => x.Email == tt.Email);
             if (taiKhoan.MatKhau is null)
                 throw new NullReferenceException();
-            if (MatKhau.XacThucMatKhau(Convert.FromBase64String(taiKhoan.MatKhau), matKhau))
+            if (MatKhau.XacThucMatKhau(Convert.FromBase64String(taiKhoan.MatKhau), tt.MatKhau))
             {
                 var authProperties = new AuthenticationProperties
                 {
@@ -55,18 +64,18 @@ public class TaiKhoanController : ControllerBase
     }
 
     [HttpPost("taotaikhoan")]
-    public async Task<IResult> TaoTaiKhoan(string email, string matKhau)
+    public async Task<IResult> TaoTaiKhoan(ThongTinDangNhap tt)
     {
         try
         {
-            if (_database.TblTaiKhoans.Count(x => x.Email == email) == 0)
+            if (_database.TblTaiKhoans.Count(x => x.Email == tt.Email) == 0)
             {
                 using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
                 {
                     var taiKhoan = new Models.TblTaiKhoan()
                     {
-                        Email = email,
-                        MatKhau = Convert.ToBase64String(MatKhau.MaHoaMatKhau(matKhau, rng))
+                        Email = tt.Email,
+                        MatKhau = Convert.ToBase64String(MatKhau.MaHoaMatKhau(tt.MatKhau, rng))
                     };
                     _database.Add(taiKhoan);
                 };
